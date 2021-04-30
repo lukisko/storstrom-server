@@ -1,13 +1,14 @@
 class MultiMessage {
 	private static instances: Map<string,MultiMessage> = new Map();//session id and array of strings - guids
 
-	private array: string[];
+	private array: Array<{userName: string; userIp: string}>;
 	private constructor(){
 		this.array = [];
 	}
 	public static getInstance(sessionId: string): MultiMessage{
 		const multiMessage = MultiMessage.instances.get(sessionId);
-		//console.log(multiMessage);
+		console.log(sessionId);
+		//console.log(this.instances, multiMessage);
 		if (multiMessage){
 			return multiMessage;
 		} else {
@@ -21,12 +22,16 @@ class MultiMessage {
 		this.array = [];
 		return arr;
 	}
-	public addToArray(userId: string){
-		this.array.push(userId);
+	public addToArray(userIp: string, userName: string){
+		this.array.push({
+            userName: userName,
+            userIp: userIp
+        });
+		//console.log(this.array);
 	}
 }
 
-const port = process.env.PORT||3000;
+const port = process.env.PORT||3001;
 
 import express from 'express';
 import fs from 'fs';
@@ -37,6 +42,7 @@ app.use(express.urlencoded());
 app.use(express.json());
 
 app.post('/toAdd', (req: any, res: any) => {
+	console.log('******************removing');
 	//res.sendFile(path.join(__dirname + '/../public/index2.html'));
 	let sessionId = req.body['sessionId'];
 	let message = MultiMessage.getInstance(sessionId).getArray();
@@ -48,11 +54,13 @@ app.use(express.static('public'));
 
 app.post('/add', (req, res) => {
 	//nothing
+	console.log('****************adding');
 	let sessionId = req.body['sessionId'];
-	let userId = req.body['userId'];
-	//console.log('userId: ',userId,", sessionId: ",sessionId);
+    let userName = req.body['userName'];
+    let userIp = req.body['userIp'];
+	console.log('userIp: ',userIp,", sessionId: ",sessionId);
 	//console.log(req.body);
-	MultiMessage.getInstance(sessionId).addToArray(userId);
+	MultiMessage.getInstance(sessionId).addToArray(userIp, userName);
 	res.send("thank you.")
 });
 

@@ -392,8 +392,8 @@
         "affectsGlobalScope": false
       },
       "./src/server.ts": {
-        "version": "cbc9bf257ad9e9f85256b01c6bf5b90220327d47192774ea967b806a66af8573",
-        "signature": "dc564680890156170d57f244fb19cdef17124fc82d756ffa36a826a3ae20d1ef",
+        "version": "4c63042fa414ec05535ed1b6596d514f90753dbe5e4388e9fcdf38a14aefb087",
+        "signature": "1bdaab87b793f49e745a6a1700bd74197b0a088d4e90ddc6f5bcb1a227fe826b",
         "affectsGlobalScope": false
       },
       "./node_modules/@types/eslint-visitor-keys/index.d.ts": {
@@ -429,6 +429,8 @@
       "strictNullChecks": false,
       "moduleResolution": 2,
       "esModuleInterop": true,
+      "watch": true,
+      "preserveWatchOutput": true,
       "configFilePath": "./tsconfig.json"
     },
     "referencedMap": {
