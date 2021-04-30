@@ -9,7 +9,7 @@ class MultiMessage {
     }
     static getInstance(sessionId) {
         const multiMessage = MultiMessage.instances.get(sessionId);
-        console.log(sessionId);
+        //console.log(sessionId);
         //console.log(this.instances, multiMessage);
         if (multiMessage) {
             return multiMessage;
@@ -40,7 +40,7 @@ const app = express_1.default();
 app.use(express_1.default.urlencoded());
 app.use(express_1.default.json());
 app.post('/toAdd', (req, res) => {
-    console.log('******************removing');
+    //console.log('******************removing');
     //res.sendFile(path.join(__dirname + '/../public/index2.html'));
     let sessionId = req.body['sessionId'];
     let message = MultiMessage.getInstance(sessionId).getArray();
@@ -50,11 +50,11 @@ app.post('/toAdd', (req, res) => {
 app.use(express_1.default.static('public'));
 app.post('/add', (req, res) => {
     //nothing
-    console.log('****************adding');
+    //console.log('****************adding');
     let sessionId = req.body['sessionId'];
     let userName = req.body['userName'];
     let userIp = req.body['userIp'];
-    console.log('userIp: ', userIp, ", sessionId: ", sessionId);
+    //console.log('userIp: ',userIp,", sessionId: ",sessionId);
     //console.log(req.body);
     MultiMessage.getInstance(sessionId).addToArray(userIp, userName);
     res.send("thank you.");
