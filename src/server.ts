@@ -65,7 +65,7 @@ app.post('/add', (req, res) => {
 });
 
 app.post('/admin',(req, res) =>{
-	var iter = MultiMessage.instances.keys();
+	let iter = MultiMessage.instances.keys();
 	res.json(iter);
 })
 
