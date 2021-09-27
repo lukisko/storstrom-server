@@ -1,5 +1,5 @@
 class MultiMessage {
-	private static instances: Map<string,MultiMessage> = new Map();//session id and array of strings - guids
+	public static instances: Map<string,MultiMessage> = new Map();//session id and array of strings - guids
 
 	private array: Array<{userName: string; userIp: string}>;
 	private constructor(){
@@ -63,6 +63,11 @@ app.post('/add', (req, res) => {
 	MultiMessage.getInstance(sessionId).addToArray(userIp, userName);
 	res.send("thank you.")
 });
+
+app.post('/admin',(req, res) =>{
+	var iter = MultiMessage.instances.keys();
+	res.json(iter);
+})
 
 app.listen(port, () => {
 	//console.log(`Example app listening at http://localhost:${port}`);
