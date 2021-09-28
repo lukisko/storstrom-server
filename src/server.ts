@@ -66,7 +66,7 @@ app.post('/add', (req, res) => {
 
 app.post('/admin',(req, res) =>{
 	let iter = MultiMessage.instances.keys();
-	res.json(iter);
+	res.json(Array.from(iter));
 })
 
 app.listen(port, () => {

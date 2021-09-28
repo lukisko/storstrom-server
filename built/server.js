@@ -59,6 +59,10 @@ app.post('/add', (req, res) => {
     MultiMessage.getInstance(sessionId).addToArray(userIp, userName);
     res.send("thank you.");
 });
+app.post('/admin', (req, res) => {
+    let iter = MultiMessage.instances.keys();
+    res.json(Array.from(iter));
+});
 app.listen(port, () => {
     //console.log(`Example app listening at http://localhost:${port}`);
 });

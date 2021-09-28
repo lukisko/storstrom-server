@@ -392,8 +392,8 @@
         "affectsGlobalScope": false
       },
       "./src/server.ts": {
-        "version": "2b64f0fe6c6599ce34530c0f7092634ca5f9f876ad6a4eea84a2ec6b84fd33cc",
-        "signature": "1bdaab87b793f49e745a6a1700bd74197b0a088d4e90ddc6f5bcb1a227fe826b",
+        "version": "87844e10c23585bf31ae02a5d7b02f84233d0f3c0dc88a6ceb9164b64b3d6b12",
+        "signature": "dc564680890156170d57f244fb19cdef17124fc82d756ffa36a826a3ae20d1ef",
         "affectsGlobalScope": false
       },
       "./node_modules/@types/eslint-visitor-keys/index.d.ts": {
